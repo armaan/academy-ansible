@@ -1,0 +1,102 @@
+percona-cluster:
+  vip: '192.168.122.45'
+  root-password: agoodpassword
+  sst-password: agoodpassword
+mysql-hacluster:
+  corosync_transport: unicast
+
+keystone:
+  admin-password: 'openstack'
+  debug: 'true'
+  log-level: 'DEBUG'
+  os-admin-network: '192.168.122.0/24'
+  openstack-origin: cloud:trusty-kilo
+  vip: '192.168.122.60'
+keystone-hacluster:
+  corosync_transport: unicast
+
+glance:
+  os-admin-network: '192.168.122.0/24'
+  verbose: 'True'
+  debug: 'True'
+  openstack-origin: cloud:trusty-kilo
+  vip: '192.168.122.61'
+glance-hacluster:
+  corosync_transport: unicast
+
+nova-cloud-controller:
+  network-manager: 'Neutron'
+  quantum-security-groups: 'yes'
+  quantum-plugin: 'ovs'
+  neutron-external-network: ext-net
+  console-access-protocol: novnc
+  console-proxy-ip: 127.0.0.1
+  os-admin-network: '192.168.122.0/24'
+  verbose: 'True'
+  debug: 'True'
+  openstack-origin: cloud:trusty-kilo
+  vip: '192.168.122.62'
+ncc-hacluster:
+  corosync_transport: unicast
+
+openstack-dashboard:
+  debug: 'True'
+  ubuntu-theme: 'no'
+  neutron-network-lb: 'False'
+  neutron-network-firewall: 'False'
+  neutron-network-vpn: 'False'
+  openstack-origin: cloud:trusty-kilo
+  vip: '192.168.122.63'
+horizon-hacluster:
+  corosync_transport: unicast
+
+ceph:
+  fsid: '60fefb98-6b2e-11e4-97e5-e3460dde7356'
+  monitor-count: 3
+  monitor-secret: 'AQCEoGRU+PXsFRAAdinNwhkQXLqSx44HiVQORA=='
+  osd-devices: '/dev/vdb'
+  osd-reformat: 'yes'
+ceph-osd:
+  osd-devices: '/dev/vdb'
+  osd-reformat: 'yes'
+
+cinder:
+  block-device: 'None'
+  overwrite: "true"
+  glance-api-version: 2
+  os-admin-network: '192.168.122.0/24'
+  vip: '192.168.122.70'
+  verbose: 'True'
+  debug: 'True'
+cinder-hacluster:
+  corosync_transport: unicast
+
+nova-compute:
+  enable-live-migration: 'False'
+  migration-auth-type: "none"
+  virt-type: qemu
+  enable-resize: 'True'
+  enable-live-migration: 'True'
+  migration-auth-type: 'ssh'
+  os-data-network: '192.168.133.0/24'
+
+quantum-gateway:
+  instance-mtu: 1400
+  ext-port: 'eth2'
+  plugin: ovs
+  os-data-network: '192.168.133.0/24'
+
+neutron-api:
+  neutron-security-groups: 'True'
+  l2-population: 'False'
+  os-internal-network: '192.168.133.0/24'
+  os-public-network: '192.168.144.0/24'
+  os-admin-network: '192.168.122.0/24'
+  vip: '192.168.122.123'
+
+neutron-openvswitch:
+  disable-security-groups: 'False'
+  os-data-network: '192.168.133.0/24'
+  verbose: 'True'
+  debug: 'True'
+
