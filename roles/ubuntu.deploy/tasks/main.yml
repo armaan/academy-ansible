@@ -44,6 +44,8 @@
       dest: 'openstack-config-ha.yaml'
     - src: 'openstack-config-ceph.yaml.j2'
       dest: 'openstack-config-ceph.yaml'
+    - src: 'openstack-config-lxc.yaml.j2'
+      dest: 'openstack-config-lxc.yaml'
 
 - name: copy scripts
   sudo: no
@@ -55,6 +57,7 @@
     - deploy-openstack.sh
     - deploy-openstack-ha.sh
     - deploy-openstack-ceph.sh
+    - deploy-openstack-lxc-ha.sh
 
 - name: copy rc files
   sudo: no
