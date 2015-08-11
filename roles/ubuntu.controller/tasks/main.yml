@@ -36,5 +36,7 @@
     src="{{ item }}"
     dest="/usr/share/lxc/templates/"
     mode=0755
+    owner=root
+    group=root
   with_items:
     - lxc-ubuntu-cloud
