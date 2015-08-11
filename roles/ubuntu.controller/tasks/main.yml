@@ -29,3 +29,12 @@
     - glance_https_frontend.conf
     - cinder_https_frontend.conf
     - nova_https_frontend.conf
+
+- name: copy modified lxc template
+  sudo: yes
+  copy: >-
+    src="{{ item }}"
+    dest="/usr/share/lxc/templates/"
+    mode=0755
+  with_items:
+    - lxc-ubuntu-cloud
