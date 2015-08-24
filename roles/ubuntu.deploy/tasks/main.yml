@@ -56,6 +56,8 @@
     - deploy-openstack-ha.sh
     - deploy-openstack-ceph.sh
     - deploy-ubuntu-openstack.sh
+    - deploy-ubuntu-openstack-ceph.sh
+
 - name: copy rc files
   sudo: no
   copy: >-
